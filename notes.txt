@@ -1,0 +1,130 @@
+Day 1: Basics of Networking & Models
+
+Topics:
+         🔹What is Computer Network, its types (LAN, WAN, MAN, PAN)
+
+            👉 A computer network is a collection of two or more interconnected devices (computers, servers, routers, etc.) that communicate with each other to share data, resources, and services.
+                
+                 1. PAN (Personal Area Network)
+
+                    📌Smallest network, ek individual ke around hota hai.
+                    📌Range: 1 to 10 meters.
+                    📌Devices: Smartphone, Laptop, Bluetooth earphones, Smartwatch.
+
+                    Example: Tumhara mobile hotspot ya Bluetooth headphone connection.
+
+                2. LAN (Local Area Network)
+
+                    📌Ek limited geographical area (office, home, school) ka network.
+                    📌High speed (100 Mbps – 1 Gbps).
+                    📌Managed by a single organization.
+                    📌Devices: Computers, Printers, Switches, Routers.
+
+                    Example: Office Wi-Fi network, College lab network.
+
+                3. MAN (Metropolitan Area Network)
+
+                    📌LAN se bada, ek city level ka network.
+                    📌Connects multiple LANs within a city.
+                    📌Range: 5–50 km.
+
+                    Example: Cable TV network, City-wide Wi-Fi (like Bhopal Smart City Wi-Fi).
+
+                4. WAN (Wide Area Network)
+
+                    📌Sabse bada network — covers countries/continents.
+                    📌Connects multiple LANs and MANs.
+                    📌Internet itself is the largest WAN.
+
+                    Example: Banking network across India, Internet.
+
+
+         🔹Topologies (Bus, Star, Mesh, Hybrid)
+
+            👉 Network topology is the arrangement of devices (nodes) and cables in a network.
+                It shows how devices are connected and how data flows between them.
+
+                    Types of Network Topologies
+
+                        1.Bus Topology = One main cable (backbone) connects all devices.
+                        If the backbone fails → whole network fails.
+                        ✅ Cheap & simple
+                        ❌ Slow with many devices
+                        📌 Example: Cable TV network
+
+                        2.Star Topology= All devices connect to a central hub/switch.
+                        If hub fails → network fails.
+                        ✅ Easy to manage
+                        ❌ Costly (extra hub/switch)
+                        📌 Example: Office Wi-Fi (router in center)
+
+                        3.Mesh Topology= Every device connects to every other device.
+                        ✅ Very reliable & fast
+                        ❌ Very costly & complex
+                        📌 Example: Internet backbone
+
+                        4.Hybrid Topology= Combination of two or more topologies.
+                        ✅ Flexible & scalable
+                        ❌ Expensive & complex
+                        📌 Example: Large company networks
+
+
+         🔹OSI Model – 7 layers & responsibilities
+
+             👉 It’s a conceptual model that explains how data travels from one device to another in 7 layers.Each layer has its own role.
+              
+                7 Layers of OSI Model & Their Responsibilities
+
+                    1.Physical Layer (Layer 1)= Handles hardware, cables, signals
+                    Data unit: Bits (0s & 1s)
+                    📌 Example: Ethernet cable, Wi-Fi signals
+
+                    2.Data Link Layer (Layer 2)= Node-to-node delivery (within same network)
+                    Uses MAC address
+                    Data unit: Frames
+                    📌 Example: Switch, MAC address
+
+                    3.Network Layer (Layer 3)= Source-to-destination delivery (across networks)
+                    Uses IP address & routing
+                    Data unit: Packets
+                    📌 Example: Router, IP address
+
+                    4.Transport Layer (Layer 4)= End-to-end communication
+                    Uses TCP (reliable) and UDP (fast)
+                    Identifies apps via port numbers
+                    Data unit: Segments
+                    📌 Example: TCP → WhatsApp msg, UDP → YouTube streaming
+
+                    5.Session Layer (Layer 5)= Manages sessions (start, maintain, end)
+                    📌 Example: Staying logged into a website until logout
+
+                    6.Presentation Layer (Layer 6)= Translates, encrypts, compresses data
+                    📌 Example: HTTPS encryption, JPEG/MP3 formatting
+
+                    7.Application Layer (Layer 7)= Closest to the user, provides services
+                    📌 Example: Chrome (HTTP), Gmail (SMTP), WhatsApp
+
+
+         🔹TCP/IP Model vs OSI Model
+
+            | Feature      | **OSI Model**                                                   | **TCP/IP Model**                           |
+            | ------------ | --------------------------------------------------------------- | ------------------------------------------ |
+            | Layers       | 7 layers                                                        | 4 layers                                   |
+            | Developed by | ISO (theoretical)                                               | DARPA (practical)                          |
+            | Approach     | Protocol-independent (conceptual)                               | Protocol-specific (real-world use)         |
+            | Usage        | Used for **teaching, understanding**                            | Used for **actual internet communication** |
+            | Example      | Explains "what happens"                                         | Implements "how it happens"                |
+            | Transport    | Connection-oriented (TCP) & connectionless (UDP) both explained | TCP/UDP directly implemented               |
+            | Standard     | Generic model                                                   | Protocol-driven model (TCP, IP, HTTP, FTP) |
+
+
+Related Questions For Interview:
+
+        1.What is the difference between LAN and WAN?
+        2.Explain OSI model with real-world examples.
+        3.Why do we need layered architecture in networking?
+        4.Compare OSI and TCP/IP models.
+        5.Which layer ensures reliable delivery of data?
+
+
+        
