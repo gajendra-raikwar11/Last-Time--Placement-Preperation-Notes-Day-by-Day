@@ -1,0 +1,346 @@
+Day 1: Basics of Networking & Models
+
+Topics:
+         🔹What is Computer Network, its types (LAN, WAN, MAN, PAN)
+
+            👉 A computer network is a collection of two or more interconnected devices (computers, servers, routers, etc.) that communicate with each other to share data, resources, and services.
+                
+                 1. PAN (Personal Area Network)
+
+                    📌Smallest network, ek individual ke around hota hai.
+                    📌Range: 1 to 10 meters.
+                    📌Devices: Smartphone, Laptop, Bluetooth earphones, Smartwatch.
+
+                    Example: Tumhara mobile hotspot ya Bluetooth headphone connection.
+
+                2. LAN (Local Area Network)
+
+                    📌Ek limited geographical area (office, home, school) ka network.
+                    📌High speed (100 Mbps – 1 Gbps).
+                    📌Managed by a single organization.
+                    📌Devices: Computers, Printers, Switches, Routers.
+
+                    Example: Office Wi-Fi network, College lab network.
+
+                3. MAN (Metropolitan Area Network)
+
+                    📌LAN se bada, ek city level ka network.
+                    📌Connects multiple LANs within a city.
+                    📌Range: 5–50 km.
+
+                    Example: Cable TV network, City-wide Wi-Fi (like Bhopal Smart City Wi-Fi).
+
+                4. WAN (Wide Area Network)
+
+                    📌Sabse bada network — covers countries/continents.
+                    📌Connects multiple LANs and MANs.
+                    📌Internet itself is the largest WAN.
+
+                    Example: Banking network across India, Internet.
+
+
+         🔹Topologies (Bus, Star, Mesh, Hybrid)
+
+            👉 Network topology is the arrangement of devices (nodes) and cables in a network.
+                It shows how devices are connected and how data flows between them.
+
+                    Types of Network Topologies
+
+                        1.Bus Topology = One main cable (backbone) connects all devices.
+                        If the backbone fails → whole network fails.
+                        ✅ Cheap & simple
+                        ❌ Slow with many devices
+                        📌 Example: Cable TV network
+
+                        2.Star Topology= All devices connect to a central hub/switch.
+                        If hub fails → network fails.
+                        ✅ Easy to manage
+                        ❌ Costly (extra hub/switch)
+                        📌 Example: Office Wi-Fi (router in center)
+
+                        3.Mesh Topology= Every device connects to every other device.
+                        ✅ Very reliable & fast
+                        ❌ Very costly & complex
+                        📌 Example: Internet backbone
+
+                        4.Hybrid Topology= Combination of two or more topologies.
+                        ✅ Flexible & scalable
+                        ❌ Expensive & complex
+                        📌 Example: Large company networks
+
+
+         🔹OSI Model – 7 layers & responsibilities
+
+             👉 It’s a conceptual model that explains how data travels from one device to another in 7 layers.Each layer has its own role.
+              
+                7 Layers of OSI Model & Their Responsibilities
+
+                    1.Physical Layer (Layer 1)= Handles hardware, cables, signals
+                    Data unit: Bits (0s & 1s)
+                    📌 Example: Ethernet cable, Wi-Fi signals
+
+                    2.Data Link Layer (Layer 2)= Node-to-node delivery (within same network)
+                    Uses MAC address
+                    Data unit: Frames
+                    📌 Example: Switch, MAC address
+
+                    3.Network Layer (Layer 3)= Source-to-destination delivery (across networks)
+                    Uses IP address & routing
+                    Data unit: Packets
+                    📌 Example: Router, IP address
+
+                    4.Transport Layer (Layer 4)= End-to-end communication
+                    Uses TCP (reliable) and UDP (fast)
+                    Identifies apps via port numbers
+                    Data unit: Segments
+                    📌 Example: TCP → WhatsApp msg, UDP → YouTube streaming
+
+                    5.Session Layer (Layer 5)= Manages sessions (start, maintain, end)
+                    📌 Example: Staying logged into a website until logout
+
+                    6.Presentation Layer (Layer 6)= Translates, encrypts, compresses data
+                    📌 Example: HTTPS encryption, JPEG/MP3 formatting
+
+                    7.Application Layer (Layer 7)= Closest to the user, provides services
+                    📌 Example: Chrome (HTTP), Gmail (SMTP), WhatsApp
+
+
+         🔹TCP/IP Model vs OSI Model
+
+            | Feature      | **OSI Model**                                                   | **TCP/IP Model**                           |
+            | ------------ | --------------------------------------------------------------- | ------------------------------------------ |
+            | Layers       | 7 layers                                                        | 4 layers                                   |
+            | Developed by | ISO (theoretical)                                               | DARPA (practical)                          |
+            | Approach     | Protocol-independent (conceptual)                               | Protocol-specific (real-world use)         |
+            | Usage        | Used for **teaching, understanding**                            | Used for **actual internet communication** |
+            | Example      | Explains "what happens"                                         | Implements "how it happens"                |
+            | Transport    | Connection-oriented (TCP) & connectionless (UDP) both explained | TCP/UDP directly implemented               |
+            | Standard     | Generic model                                                   | Protocol-driven model (TCP, IP, HTTP, FTP) |
+
+
+Related Questions For Interview:
+
+        1.What is the difference between LAN and WAN?
+        2.Explain OSI model with real-world examples.
+        3.Why do we need layered architecture in networking?
+        4.Compare OSI and TCP/IP models.
+        5.Which layer ensures reliable delivery of data?
+
+
+
+
+
+Day 2: Physical Layer & Data Link Layer
+
+Topics:
+
+        🔹Transmission media (wired, wireless)
+          
+          👉 Transmission media = the path or channel through which data travels from one device to another in a network.
+          It is like a road for data signals.
+          Two main types:
+            1.Wired (Guided Media)
+            2.Wireless (Unguided Media)
+
+            1. Wired (Guided) Transmission Media
+                👉 Data travels through physical cables.
+
+                Types:
+                1.Twisted Pair Cable
+                Copper wires twisted together.
+                Used in LAN, telephones.
+                📌 Example: Ethernet cables (Cat5, Cat6).
+
+                2.Coaxial Cable
+                Single copper wire with shielding.
+                Better than twisted pair in noise resistance.
+                📌 Example: Cable TV, CCTV.
+
+                3. Optical Fiber Cable
+                Uses light signals for transmission.
+                Very fast, long distance, secure.
+                📌 Example: Internet backbone, ISPs.
+
+                ✅ Advantages:
+                High speed (especially fiber).
+                Less interference.
+
+                ❌ Disadvantages:
+                Installation cost is high.
+                Limited mobility.
+
+
+            2. Wireless (Unguided) Transmission Media
+                👉 Data travels through air using electromagnetic waves.
+                    Types:
+                    1. Radio Waves
+                    Travel in all directions.
+                    📌 Example: FM radio, Wi-Fi, Bluetooth.
+
+                    2. Microwaves
+                    Point-to-point communication.
+                    Used in satellites & mobile communication.
+                    📌 Example: Mobile towers, satellite TV.
+
+                    3. Infrared (IR)
+                    Short distance, line-of-sight.
+                    📌 Example: TV remote, short-range devices.
+
+                    4. Satellite Communication
+                    Uses satellites to transmit signals.
+                    📌 Example: GPS, DTH TV.
+
+                    ✅ Advantages:
+                    No physical cables needed.
+                    High mobility & easy installation.
+
+                    ❌ Disadvantages:
+                    Slower than fiber optics.
+                    Can be affected by weather, interference.
+
+
+        🔹Switching (circuit, packet, message)
+            👉 Switching is the method used to route data from source to destination in a network.
+            It determines how data packets are forwarded.
+                              or
+            Switching = The process of transferring data from source to destination in a network using different techniques.
+            It decides how data will travel through the network.
+    
+                Types of Switching:
+    
+                    1.Circuit Switching
+                    A dedicated communication path is established between sender and receiver for the entire duration of the session.
+                    📌 Example: Traditional telephone networks.
+                    ✅ Advantages:
+                    Consistent connection, low latency.
+                    ❌ Disadvantages:
+                    Inefficient use of resources, setup time.
+    
+                    2.Packet Switching
+                    Data is broken into packets, each packet can take different routes to the destination.
+                    📌 Example: The Internet.
+                    ✅ Advantages:
+                    Efficient use of bandwidth, robust.
+                    ❌ Disadvantages:
+                    Variable latency, packet loss possible.
+    
+                    3.Message Switching
+                    Entire message is sent to an intermediate node which stores it and forwards it when the next node is free.
+                    📌 Example: Email systems.
+                    ✅ Advantages:
+                    No dedicated path needed, good for large messages.
+                    ❌ Disadvantages:
+                    Delay due to store-and-forward, requires storage at nodes.  
+
+        🔹Error detection & correction (Parity, CRC, Checksum, Hamming code)
+
+            👉 Error detection and correction are techniques used to ensure data integrity during transmission.
+            They help identify and fix errors that may occur due to noise, interference, or other issues in the communication channel.
+    
+                1. Parity Check
+                Adds a single parity bit to data to make the number of 1s either even (even parity) or odd (odd parity).
+                📌 Example: 1011001 (odd parity) → 10110011 (parity bit added).
+                ✅ Simple and fast.
+                ❌ Can only detect single-bit errors.
+    
+                2. Cyclic Redundancy Check (CRC)
+                Uses polynomial division to generate a checksum based on the data bits.
+                The receiver performs the same calculation to check for errors.
+                📌 Example: Used in network protocols like Ethernet.
+                ✅ Very reliable for detecting burst errors.
+                ❌ More complex than parity check.
+    
+                3. Checksum
+                Adds up all data bytes and sends the sum along with the data.
+                The receiver calculates the sum again to verify integrity.
+                📌 Example: Used in TCP/IP protocols.
+                ✅ Simple and effective for small data blocks.
+                ❌ Less effective for large data blocks.
+    
+                4. Hamming Code
+                Adds multiple parity bits at specific positions in the data to allow both error detection and correction.
+                📌 Example: Used in computer memory systems.
+                ✅ Can detect and correct single-bit errors.
+                ❌ More overhead due to extra bits.
+
+        🔹Flow control protocols (Stop-and-wait, Sliding window)
+            👉 Flow control protocols manage the rate of data transmission between sender and receiver to prevent overwhelming the receiver.
+    
+                1. Stop-and-Wait Protocol
+                The sender sends one frame and waits for an acknowledgment (ACK) from the receiver before sending the next frame.
+                📌 Example: Simple file transfer protocols.
+                ✅ Simple to implement.
+                ❌ Inefficient for long-distance communication due to waiting time.
+    
+                2. Sliding Window Protocol
+                The sender can send multiple frames before needing an acknowledgment, up to a specified window size.
+                The receiver can also accept multiple frames and send cumulative ACKs.
+                📌 Example: TCP uses sliding window for reliable data transfer.
+                ✅ More efficient than Stop-and-Wait, better utilization of bandwidth.
+                ❌ More complex to implement due to managing window size and ACKs.
+
+        🔹MAC, ARP, Ethernet basics
+            1. MAC (Media Access Control)
+                👉 MAC is a unique identifier assigned to network interfaces for communications at the data link layer.
+                It is used to identify devices on a local network.
+                📌 Example: MAC address of a laptop’s Wi-Fi adapter (e.g., 00:1A:2B:3C:4D:5E).
+    
+            2. ARP (Address Resolution Protocol)
+                👉 ARP is a protocol used to map an IP address to a MAC address in a local network.
+                When a device wants to communicate with another device, it uses ARP to find the MAC address associated with the target IP address.
+                📌 Example: If your computer wants to send data to a printer on the same network, it uses ARP to find the printer's MAC address.    
+
+            3. Ethernet Basics
+                👉 Ethernet is a widely used LAN technology that defines wiring and signaling standards for the physical layer
+
+Related Questions For Interview for Day 2:
+
+        1. What is the difference between circuit switching and packet switching?
+        2. Explain Stop-and-Wait vs Sliding Window protocol.
+
+        
+        3. How does ARP work? 
+         👉 ARP is used to map an IP address to a MAC address in a local network by broadcasting an ARP request and receiving an ARP reply.
+
+
+        4. What is the role of the Data Link Layer?
+         👉 The Data Link Layer is responsible for node-to-node delivery of data within the same network. It ensures that data is transferred reliably and without errors from one device to another device directly connected in a LAN.
+
+
+        5. Explain CSMA/CD vs CSMA/CA.
+                1. CSMA = Carrier Sense Multiple Access
+                     🔹A media access control protocol that decides when a device can transmit data over a shared channel.
+                     🔹Devices first listen to the channel before sending data (Carrier Sense).
+                     🔹Multiple devices may access the same channel (Multiple Access).
+
+                Now the difference comes in collision handling 👇
+
+                🔹CSMA/CD (Collision Detection) :
+
+                Full form: Carrier Sense Multiple Access with Collision Detection
+                Used in: Wired Ethernet (LANs)
+                How it works:
+                       - Device checks if channel is free.
+                       - If free → it sends data.
+                       - If two devices send at the same time → collision occurs.
+                       - Devices detect collision (by monitoring signals).
+                       - They stop transmission, wait for a random time (backoff), and try again.
+
+                ✅ Advantage → Works well in wired networks where collisions can be detected.
+                ❌ Disadvantage → Wastes bandwidth when collisions happen.
+                📌 Example: Classic Ethernet (Hub-based LAN).
+
+                🔹CSMA/CA (Collision Avoidance):
+
+                Full form: Carrier Sense Multiple Access with Collision Avoidance
+                Used in: Wireless networks (Wi-Fi, IEEE 802.11)
+                How it works:
+
+                       - Device checks if channel is free.
+                       - Instead of transmitting immediately, it waits a random backoff time.
+                       - Uses control signals like RTS (Request to Send) / CTS (Clear to Send) to avoid collisions.
+                       - Then sends the data safely.
+
+                ✅ Advantage → Prevents collisions (important in wireless where detection is hard).
+                ❌ Disadvantage → Extra overhead (RTS/CTS exchange).
+                📌 Example: Wi-Fi networks.

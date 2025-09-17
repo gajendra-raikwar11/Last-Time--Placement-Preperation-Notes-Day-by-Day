@@ -1,0 +1,324 @@
+📅 NodeJS Interview Prep Schedule (Day-by-Day)
+
+👉 What is node.js->
+ 🔹 node,js is the run time environment for javascript.
+
+
+
+👉 What is package.json-> 
+ 🔹package.json is the configuration file of any node.js project, it contains metadata about your project and dependencies and scripts etc.
+
+
+
+👉 npx (Node Package Execute)
+ 🔹 What it does:
+        Used to execute binaries (commands) from npm packages.
+        Runs packages without installing them globally.
+        Useful for running one-time commands or tools.
+
+
+
+👉 npm (Node Package Manager)
+ 🔹What it does:
+        Used to install, update, or uninstall packages.
+        Manages dependencies inside your project’s node_modules/ folder.
+        Comes installed with Node.js.
+
+
+
+👉 Synchronous vs Asynchronous in Node.js->
+ 1️⃣ Synchronous (Blocking):
+        Code runs line by line (one after another).
+        Each operation blocks the execution until it finishes.
+        Slower for tasks like reading files, database queries, or API calls.
+
+      Example:
+        const fs = require("fs");
+
+        // Synchronous file read
+        const data = fs.readFileSync("file.txt", "utf8");
+        console.log("File content:", data);
+
+        console.log("This will run AFTER file is read");
+
+ 2️⃣ Asynchronous (Non-Blocking)
+        🔹Code does not wait for a task to finish.
+        Uses callbacks, promises, async/await.
+        Node.js can continue executing other code while waiting for slow operations.
+
+        Example:
+            const fs = require("fs");
+
+            // Asynchronous file read
+            fs.readFile("file.txt", "utf8", (err, data) => {
+            if (err) throw err;
+            console.log("File content:", data);
+            });
+
+
+
+👉 What is a URL? 
+   🔹Url stands for Uniform Resource Locator.
+   it's basically the address of a resource (like a web page, image, API, or file) on the internet or a network.
+
+        🔹Structure of a URL:
+                protocol://hostname:port/path?query#fragment
+        🔹Example:
+                protocol://hostname:port/path?query#fragment
+
+
+
+👉 HTTP Methods-> 
+🔹HTTP methods define the type of action the client (browser, app) wants to perform on a resource (data) on the server.
+
+        GET = Read
+        POST = Create
+        PUT = Update (replace)
+        PATCH = Update (partial)
+        DELETE = Remove
+
+
+
+👉 What is Idempotent?
+    🔹An operation is idempotent if doing it once or multiple times has the same effect.
+        1 time = same result
+        100 times = still the same result
+
+         HTTP Method	Idempotent?	
+            GET	         ✅ Yes	
+            PUT	         ✅ Yes	
+            DELETE	 ✅ Yes	
+            PATCH	 ❌ No	
+            POST	 ❌ No
+
+
+
+
+👉 What is a RESTful API?
+    🔹REST = REpresentational State Transfer
+    🔹API = Application Programming Interface
+    🔹A RESTful API is an API that follows the REST architecture principles, which means it allows communication between client and server using HTTP methods (GET, POST, PUT, DELETE, etc.) in a stateless and resource-oriented way.
+
+
+
+
+👉 What is Middleware?
+  🔹In Express.js, middleware is a function that sits between the request and response.
+    It can modify, log, validate, or process the request/response before passing control to the next function.
+        Think of it as a pipeline:
+
+        Request → [Middleware 1] → [Middleware 2] → [Route Handler] → Response
+
+
+
+
+👉 What are HTTP Headers?
+ 🔹HTTP headers are key-value pairs sent in both request and response to provide extra information about  the request or the server’s response.
+ They don’t carry the actual content, but metadata about the communication.
+
+
+
+
+👉 What is MongoDB?
+ 🔹MongoDB is a NoSQL database that stores data in a document-oriented format (JSON-like).
+ Instead of rows & tables (like in SQL), it uses collections and documents.
+
+
+
+
+👉 What is Vertical and Horizontal scalling?
+    
+        🔹1. Vertical Scaling (Scale Up)
+                Meaning: Add more power (CPU, RAM, Storage) to a single server.
+                Works well for Relational Databases (SQL) like MySQL, PostgreSQL.
+
+                👉 Example (Bank analogy):
+                Imagine a bank branch with one cashier.
+                If more customers come, you give the cashier a faster computer, extra assistant, or bigger desk.
+                Still only one cashier is serving.
+
+                ⚠️ Limitation: A single server has hardware limits — you can’t keep upgrading forever.
+
+
+        🔹 2. Horizontal Scaling (Scale Out)
+
+                Meaning: Instead of one big machine, add more servers.
+                Works well for NoSQL Databases like MongoDB.
+
+                👉 Example (Bank analogy):
+                If too many customers come, you open new branches of the bank.
+                Now customers are divided across multiple branches.
+                Each branch handles its own part of the load.
+
+                ✅ Advantage: You can keep adding more servers without limit.
+
+
+
+
+👉 What is Sharding?
+ 🔹Sharding = Splitting a large dataset into smaller chunks and storing them across multiple servers (called shards).
+
+        1.Each shard stores a portion of data.
+        2.A Query Router (Mongos) decides which shard should process which query.
+        3.A Config Server keeps metadata about shard distribution.
+
+        🔹A sharded cluster has 3 main parts:
+
+        1.Shards → Databases where actual data is stored (can be replica sets for high availability).
+        2.Config Servers → Store metadata (which shard has which data).
+        3.Mongos (Query Router) → Acts like a load balancer. Your app connects here, and it decides which shard to hit.
+
+        👉 Example (E-commerce App):
+
+        You have 100 million orders.
+
+        Instead of keeping all orders on one server, you shard by customerId:
+
+        Shard 1 → customers 1–1,000,000
+
+        Shard 2 → customers 1,000,001–2,000,000
+
+        Shard 3 → customers 2,000,001–3,000,000
+
+        When a query comes:
+
+        Find orders of customerId=1,200,500 → goes directly to Shard 2.
+
+        Total sales by city → runs in all shards and then results are merged.
+
+        ✅ This makes MongoDB capable of handling huge amounts of unstructured or rapidly growing data.
+
+
+
+
+👉 What is Mongoose?
+ 🔹Mongoose is an ODM (Object Data Modeling) library for MongoDB in Node.js.
+ It acts like a bridge between your Node.js code and the MongoDB database.
+
+        It helps you:
+
+        1.Define a schema (structure of your data)
+        2.Interact with MongoDB using models (like classes/objects)
+        3.Get extra features like validation, hooks, and middleware
+
+
+
+
+
+👉 Why Use Mongoose?
+ 🔹MongoDB is schema-less (you can insert anything).
+ Sometimes this flexibility can create messy, inconsistent data.  
+ Mongoose adds a layer of structure on top of MongoDB.
+
+
+
+
+👉 ssr
+ 🔹
+
+
+
+ 👉 what is Stateful Authentication in Node.js?
+ 🔹 Stateful authentication means the server keeps track of the logged-in user’s session on the backend.
+ When a user logs in, the server stores session data (like user ID) and gives the client a session ID (usually in a cookie).
+
+ Every time the client makes a request, it sends this session ID → the server looks it up in its memory or database → verifies the user → and processes the request.
+
+
+
+
+ 👉 What is JWT?
+ 🔹 JWT stands for JSON Web Token.
+ It’s an open standard (RFC 7519) used to securely transmit information between two parties (like client and server) as a JSON object.
+
+        It is:
+        1.Compact → small in size, easy to send in HTTP headers or cookies
+        2.Self-contained → contains all the necessary information (like user id, roles, expiry)
+        3.Secure → signed using a secret key or public/private key (so it cannot be tampered with)
+
+        Structure: (HEADER.PAYLOAD.SIGNATURE)
+
+
+
+
+ 👉 What is Stateless Authentication?
+ 🔹 Stateless authentication means the server does not keep session data about the user.
+Instead, all the information needed to verify a user is stored on the client side, usually inside a token (like JWT), which is sent with every request.
+The server just validates the token each time, without storing anything about the session in memory or a database.
+
+
+
+
+ 👉 What is Authorization?
+ 🔹 Authorization is the process of deciding what a user is allowed to do after they have been authenticated (logged in).
+
+        1.Authentication = Who are you?
+        2.Authorization = What are you allowed to do?
+
+
+ 👉
+ 🔹 
+
+
+ 👉
+ 🔹
+
+ 
+ 👉
+ 🔹
+
+ 
+ 👉
+ 🔹
+
+ 
+ 👉
+ 🔹
+
+ 
+ 👉
+ 🔹
+
+ 
+ 👉
+ 🔹
+
+ 
+ 👉
+ 🔹
+
+ 
+ 👉
+ 🔹
+
+ 
+ 👉
+ 🔹
+
+ 
+ 👉
+ 🔹
+
+ 
+ 👉
+ 🔹
+
+ 
+ 👉
+ 🔹
+
+ 
+ 👉
+ 🔹
+
+ 
+ 👉
+ 🔹
+
+ 
+ 👉
+ 🔹
+
+ 
+ 👉
+ 🔹

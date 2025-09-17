@@ -1,0 +1,116 @@
+📅 React Interview Prep Schedule (Day-by-Day)
+-------------------------
+| Day 1: Basics of React |
+-------------------------
+Topics:
+    🔹What is React? Why use it?
+        📌React is a JavaScript library (not a full framework) created by Facebook for building user interfaces, especially single-page applications (SPAs).
+        📌It allows developers to build reusable UI components and handle dynamic updates efficiently.
+
+        Why it’s popular:
+        📌Component-Based Architecture → Reusable, maintainable code.
+        📌Virtual DOM → Efficient UI updates with minimal re-rendering.
+        📌Strong Ecosystem → Huge community, rich libraries, and tools.
+        📌Learning Curve → Easier than full frameworks (like Angular).
+        📌Backed by Meta (Facebook) → Long-term support and improvements.
+
+    🔹Virtual DOM & Real DOM
+        | Feature          | Real DOM                                         | Virtual DOM                                                 |
+        | ---------------- | ------------------------------------------------ | ----------------------------------------------------------- |
+        | **Definition**   | The actual Document Object Model in the browser. | A lightweight JavaScript copy of the Real DOM.              |
+        | **Update Speed** | Slow (repaints entire tree on changes).          | Fast (updates only changed nodes).                          |
+        | **Performance**  | Inefficient for frequent UI updates.             | Efficient due to **diffing algorithm** + **batch updates**. |
+        | **Usage**        | Used by browser directly.                        | Used by React internally.                                   |
+        | **Example**      | Changing a list item re-renders the entire list. | Only the changed item is re-rendered.                       |
+
+
+    🔹JSX
+        JSX (JavaScript XML) is a syntax extension for JavaScript that allows us to write HTML-like code inside JavaScript.
+
+        Example:
+        📌const element = <h1>Hello, React!</h1>;
+
+        Without JSX, you’d write:
+        📌const element = React.createElement("h1", null, "Hello, React!");
+
+
+        Why we use it:
+        📌Makes code more readable & declarative.
+        📌Looks like HTML, so easier for developers to understand.
+        📌Helps detect errors during compilation.
+        📌Ultimately compiles into JavaScript objects (React.createElement) behind the scenes.
+
+Related Questions For Interview:
+
+        1.What is React and why is it popular?
+        2.Difference between Virtual DOM and Real DOM?
+        3.Why do we need JSX in React?
+        4.Can the browser understand JSX directly?
+
+
+
+
+--------------------
+| Day 2: Components |
+--------------------
+
+Topics:
+    🔹Functional vs Class Components
+        1.Functional Component
+            👉 A simple JavaScript function that takes props as input and returns JSX (UI).
+            After React v16.8, functional components became powerful because of Hooks (useState, useEffect, etc.).
+            Now they can manage state and lifecycle like class components.
+
+            ✅ Features:
+            1.Easy to write, short & clean
+            2.Uses Hooks for state and lifecycle
+            3.Lightweight → better performance
+
+        2.Class Component
+             👉 A JavaScript class that extends React.Component and has a render() method that returns JSX.
+                Class components were the only way to manage state and lifecycle methods before Hooks.
+    
+                ✅ Features:
+                1.More boilerplate code
+                2.Uses this.state and lifecycle methods (componentDidMount, etc.)
+                3.Heavier due to class instantiation
+
+        // Comparison Table:            
+
+        | Feature               | Functional Components                          | Class Components                               |
+        | --------------------- | ---------------------------------------------- | ---------------------------------------------- |
+        | **Definition**        | JavaScript functions that return JSX.          | ES6 classes that extend React.Component.       |
+        | **State Management**  | Use Hooks (useState, useEffect, etc.)          | Use this.state and lifecycle methods.          |
+        | **Lifecycle Methods** | Use useEffect Hook for side effects.           | Have built-in lifecycle methods (componentDidMount, etc.). |
+        | **Syntax**            | Simpler and more concise.                      | More verbose due to class syntax.              |
+        | **Performance**       | Generally faster due to less overhead.         | Slightly slower due to class instantiation.    |
+        | **'this' Keyword**    | No 'this' keyword; uses closures.              | Uses 'this' to access props and state.         |
+        | **Hooks Support**     | Fully supports Hooks for state and side effects.| Does not support Hooks; relies on lifecycle methods. |
+
+
+
+    🔹Props vs State
+        1.Props (Properties)
+        Definition: Props are read-only inputs passed from a parent component to a child component.
+        📌They are like function arguments.
+        📌Cannot be changed by the child.
+        📌Used to pass data and configuration.
+
+
+        2.State
+        Definition: State is a component’s own data storage that can change over time.
+        📌Managed inside the component.
+        📌Can be updated with useState (functional) or this.setState (class).
+        📌Used for dynamic and interactive UI.
+
+    🔹Rendering Elements
+    Rendering elements means displaying UI on the screen using React elements.
+    A React element is the smallest building block of a React app (like a virtual DOM node).
+
+
+Related Questions For Interview:
+
+        1.What are components in React?
+        2.Difference between functional and class components?
+        3.What are props in React? How are they different from state?
+        4.Can props be modified inside a component? Why/Why not?
