@@ -114,3 +114,46 @@ Related Questions For Interview:
         2.Difference between functional and class components?
         3.What are props in React? How are they different from state?
         4.Can props be modified inside a component? Why/Why not?
+
+
+
+
+---------------------------------
+| Day 3:State Management Basics |
+---------------------------------
+
+Topics:
+    🔹useState Hook
+      👉 useState is a React Hook that lets you add state (data that can change) to a functional component.
+        Before hooks, only class components could have state.
+        Now, with useState, functional components can also manage state.
+
+        📌 Syntax
+        const [state, setState] = useState(initialValue);
+
+        state → current value
+        setState → function to update the value
+        initialValue → starting value of state
+
+    🔹setState in Class components
+     👉 In React class components, state is managed using the this.state object.
+        But we never update state directly (❌ this.state.count = 5).
+        Instead, we use this.setState() → it tells React that the state has changed and the component should re-render.
+
+        📌 Syntax
+        this.setState(updater, callback);
+
+        updater → new state (object or function).
+        callback (optional) → runs after state has been updated & UI re-rendered.
+
+    🔹One-way data binding
+     👉 In React, data flows in one direction → from Parent component → Child component (via props).
+        Child cannot directly change parent’s data.
+        This makes the app predictable, easy to debug, and more stable.
+
+Realted Questions for Interview:
+
+    1.What is state in React?
+    2.Difference between state and props with example.
+    3.How does setState work in class components? Is it synchronous or asynchronous?
+    4.Why does React follow one-way data binding?

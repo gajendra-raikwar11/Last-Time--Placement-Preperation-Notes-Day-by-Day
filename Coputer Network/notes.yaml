@@ -298,7 +298,7 @@ Related Questions For Interview for Day 2:
         1. What is the difference between circuit switching and packet switching?
         2. Explain Stop-and-Wait vs Sliding Window protocol.
 
-        
+
         3. How does ARP work? 
          👉 ARP is used to map an IP address to a MAC address in a local network by broadcasting an ARP request and receiving an ARP reply.
 
@@ -344,3 +344,214 @@ Related Questions For Interview for Day 2:
                 ✅ Advantage → Prevents collisions (important in wireless where detection is hard).
                 ❌ Disadvantage → Extra overhead (RTS/CTS exchange).
                 📌 Example: Wi-Fi networks.
+
+
+
+
+
+Day 3: Network Layer (Part 1)
+
+Topics:
+
+     🔹IP Addressing (IPv4, IPv6)
+        👉 An IP address (Internet Protocol Address) is a unique number assigned to each device on a network to identify it and enable communication.
+        It works at the Network Layer (Layer 3) of the OSI model.
+
+            1. IPv4 (Internet Protocol version 4)
+            Size: 32-bit address (divided into 4 octets).
+            Format: Decimal, separated by dots → 192.168.1.1
+            Total addresses: ~4.3 billion (2³²).
+            Address classes: A, B, C, D, E.
+
+            Example: 172.16.0.5
+
+            ✅ Pros: Widely used, simple.
+            ❌ Cons: Address exhaustion (not enough IPs).
+
+            2. IPv6 (Internet Protocol version 6)
+            Size: 128-bit address.
+            Format: Hexadecimal, separated by colons → 2001:0db8:85a3:0000:0000:8a2e:0370:7334
+            Total addresses: ~3.4 × 10³⁸ (almost unlimited).
+            No classes (uses prefix length like /64).
+            Built-in security: IPSec, better routing, auto-configuration.
+
+            ✅ Pros: Huge address space, faster routing, more secure.
+            ❌ Cons: Not fully adopted everywhere.
+
+  
+    Key Difference Table:
+
+    | Feature         | **IPv4**                           | **IPv6**                                     |
+    | --------------- | ---------------------------------- | -------------------------------------------- |
+    | Address size    | 32-bit                             | 128-bit                                      |
+    | Format          | Dotted decimal (e.g., 192.168.0.1) | Hexadecimal with colons (e.g., 2001\:db8::1) |
+    | Total addresses | \~4.3 billion                      | \~3.4 × 10³⁸ (virtually unlimited)           |
+    | Header size     | 20–60 bytes                        | 40 bytes (fixed)                             |
+    | Security        | Optional (IPSec add-on)            | Mandatory (IPSec built-in)                   |
+    | Example use     | LAN, IPv4 Internet                 | Modern Internet, IoT devices                 |
+
+
+     🔹Subnetting & Supernetting
+       👉 Subnetting = Splitting a large network into smaller sub-networks (subnets).
+        It helps in efficient IP address usage and better security & management.
+            Uses Subnet Mask to divide the network.
+
+            Example: 192.168.1.0/24 → split into 4 subnets (/26).
+
+            192.168.1.0 – 192.168.1.63
+            192.168.1.64 – 192.168.1.127
+            192.168.1.128 – 192.168.1.191
+            192.168.1.192 – 192.168.1.255
+
+            ✅ Advantages:
+            Reduces broadcast traffic.
+            Improves security (isolation).
+            Efficient IP utilization.
+
+            📌 Real-life analogy: Dividing a big apartment building into floors and flats → easier management.
+
+    🔹 Supernetting (CIDR – Classless Inter-Domain Routing)
+
+        👉 Supernetting = Combining multiple smaller networks into a larger network.
+        It helps in reducing routing table size.
+            Opposite of Subnetting.
+
+            Example: Combine 4 networks:
+
+            192.168.0.0/24
+            192.168.1.0/24
+            192.168.2.0/24
+            192.168.3.0/24
+            → Single Supernet: 192.168.0.0/22
+
+            ✅ Advantages:
+            Fewer routing table entries (aggregation).
+            Efficient routing in ISPs.
+
+            📌 Real-life analogy: Clubbing 4 flats into a duplex home → single management unit.
+
+    
+    Key Difference Table:
+
+    | Feature | **Subnetting**                           | **Supernetting**                            |
+    | ------- | ---------------------------------------- | ------------------------------------------- |
+    | Meaning | Breaking large network → smaller subnets | Combining small networks → bigger block     |
+    | Goal    | Efficient IP usage, reduce broadcast     | Route aggregation, reduce table entries     |
+    | Example | `192.168.1.0/24 → /26` (4 subnets)       | `192.168.0.0/24 + … + 192.168.3.0/24 → /22` |
+    | Used by | Enterprises, LANs                        | ISPs, backbone providers                    |
+
+     
+
+     🔹Routing basics (static vs dynamic routing)
+        👉 Routing = The process of finding the best path for data packets to travel from source to destination across networks.
+        It happens at the Network Layer (Layer 3) using IP addresses.
+        Routers use routing tables to make decisions.
+
+
+            🔹 Types of Routing
+                    1. Static Routing:
+                    Routes are manually configured by the network administrator.
+                    They don’t change automatically.
+
+                    ✅ Advantages:
+                    Simple, secure, no extra overhead.
+                    Useful in small networks.
+
+                    ❌ Disadvantages:
+                    Not scalable (hard to manage in large networks).
+                    If a link fails, route must be changed manually.
+
+                    📌 Example: Small office LAN, lab setup.
+
+                    2. Dynamic Routing:
+                    Routes are automatically learned and updated using routing protocols.
+                    Routers exchange information to find the best path.
+
+                    ✅ Advantages:
+                    Adapts to network changes (failure recovery).
+                    Scalable for large networks.
+
+                    ❌ Disadvantages:
+                    Complex setup.
+                    Requires more resources (CPU, bandwidth).
+
+                    📌 Example: Internet backbone, ISP networks.
+
+                    🔹 Routing Protocols (for Dynamic Routing)
+                    1.Distance Vector – RIP (Routing Information Protocol).
+                    2.Link State – OSPF (Open Shortest Path First).
+                    3.Hybrid – EIGRP (Enhanced Interior Gateway Routing Protocol).
+                    4.Exterior Gateway Protocol – BGP (Border Gateway Protocol, used on the Internet).
+
+    Key Difference Table:
+
+    | Feature       | **Static Routing**       | **Dynamic Routing**             |
+    | ------------- | ------------------------ | ------------------------------- |
+    | Configuration | Manual                   | Automatic via routing protocols |
+    | Adaptability  | Doesn’t adapt to changes | Adapts automatically to changes |
+    | Complexity    | Simple                   | Complex                         |
+    | Scalability   | Small networks           | Large networks                  |
+    | Example Use   | Small LAN                | Internet / ISP backbone         |
+
+
+
+
+     🔹Routing algorithms (Distance Vector, Link State)
+        Routing algorithms decide the best path for data packets to travel in a network. Two main categories:
+
+            🔹 1. Distance Vector Routing
+            👉 Each router shares its routing table (distance to other networks) with its neighbors periodically.
+            Uses hop count as metric (distance).
+            Routers know only about their neighbors, not the whole network.
+            Woks slowly to converge (because updates spread step by step).
+
+            ✅ Advantages:
+            Simple and easy to implement.
+
+            ❌ Disadvantages:
+            Slow convergence, prone to routing loops.
+
+            📌 Examples:
+            RIP (Routing Information Protocol)
+            IGRP
+
+            🔹 2. Link State Routing
+            👉 Each router collects info about the entire network topology and independently calculates the shortest path using Dijkstra’s algorithm.
+            Sends updates only when a change occurs (not periodically).
+            Each router builds a map of the whole network.
+            Faster and more reliable than Distance Vector.
+
+            ✅ Advantages:
+            Fast convergence, loop-free.
+            Better for large networks.
+
+            ❌ Disadvantages:
+            More complex, needs more memory and CPU.
+
+            📌 Examples:
+            OSPF (Open Shortest Path First)
+            IS-IS (Intermediate System to Intermediate System)
+
+
+
+    Key Difference Table:
+
+    | Feature           | **Distance Vector**        | **Link State**                |
+    | ----------------- | -------------------------- | ----------------------------- |
+    | Knowledge         | Only knows about neighbors | Knows full network topology   |
+    | Metric            | Hop count                  | Cost (bandwidth, delay, etc.) |
+    | Algorithm         | Bellman-Ford               | Dijkstra                      |
+    | Convergence       | Slow                       | Fast                          |
+    | Complexity        | Simple                     | Complex                       |
+    | Example Protocols | RIP, IGRP                  | OSPF, IS-IS                   |
+
+
+
+
+Related Questions for Interview:
+
+    1.Explain the difference between IPv4 and IPv6.
+    2.What is subnetting? Why is it used?
+    3.How does the Link State routing algorithm work?
+    4.Explain the difference between unicast, multicast, and broadcast.
+    5.What is a default gateway?
